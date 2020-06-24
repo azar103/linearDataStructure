@@ -5,7 +5,6 @@ VAR
     i : INTEGER;
     j  :INTEGER;
     sum : INTEGER := 0;
-    sum_arr : ARRAY_OF  INTEGER[];
     trouve: BOOLEAN = false;
     m := INTEGER;
     n := INTEGER;
@@ -25,29 +24,30 @@ BEGIN
     REPEAT
        j :=0;
         REPEAT
-            IF (first_array[i] <> second_array[j]) THEN
-                trouve := FALSE;
+            IF (first_array[i] == second_array[j]) THEN
+                trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=false)
-        IF (trouve := TRUE) THEN
+        UNTIL (j<m AND trouve == FALSE)
+        IF (trouve == FALSE) THEN
             sum := sum + first_array[i];
         END_IF   
         i++
     UNTIL (i<n)
      
+
     //compare the second set with the first set
     i:=0;
- 
+    trouve := FALSE;
     REPEAT
         j:=0;
         REPEAT
-            IF (second_array[i] <> first[j]) THEN
-                trouve := FALSE;
+            IF (second_array[i] == first[j]) THEN
+                trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=true)
-        IF (trouve := TRUE) THEN
+        UNTIL (j<m AND trouve == FALSE)
+        IF (trouve == FALSE) THEN
             sum := sum + second_array[i];
         END_IF 
         i++

@@ -30,8 +30,8 @@ BEGIN
                 trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=TRUE)
-        IF (NOT trouve) THEN
+        UNTIL (j<m AND trouve == FALSE)
+        IF (TROUVE ==  TRUE) THEN
             sum := sum + first_array[i];
         END_IF   
         i++
@@ -39,16 +39,16 @@ BEGIN
      
     //compare the second set with the first set
     i:=0;
-
+    TROUVE = FALSE;
     REPEAT
         j:=0;
         REPEAT
-            IF (second_array[i] == first[j]) THEN
+            IF (second_array[i] == first_array[j]) THEN
                 trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=TRUE)
-        IF (NOT trouve) THEN
+        UNTIL (j<m AND trouve ==FALSE)
+        IF (TROUVE == TRUE) THEN
             sum := sum + second_array[i];
         END_IF 
         i++
@@ -56,5 +56,5 @@ BEGIN
 
     
 
-    Write("the sum of the distinc elements is "+sum);
+    Write("the sum of the overlapping elements is "+sum);
 END
