@@ -49,7 +49,7 @@ BEGIN
     j := 0;
     REPEAT
         REPEAT
-            IF (tab2.get(i):= tab1.get(j)) THEN
+            IF (tab2.get(i) <> tab1.get(j)) THEN
                 trouve := FALSE;
             END_IF
             j++

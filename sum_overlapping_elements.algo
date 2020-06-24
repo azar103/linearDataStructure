@@ -25,7 +25,7 @@ BEGIN
     j:=0;
     REPEAT
         REPEAT
-            IF (first_array[i] := second_array[j]) THEN
+            IF (first_array[i] == second_array[j]) THEN
                 trouve := TRUE;
             END_IF
             j++
@@ -41,7 +41,7 @@ BEGIN
     j:=0;
     REPEAT
         REPEAT
-            IF (second_array[i] := first[j]) THEN
+            IF (second_array[i] == first[j]) THEN
                 trouve := TRUE;
             END_IF
             j++
