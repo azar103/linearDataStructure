@@ -22,8 +22,9 @@ BEGIN
     END_FOR
    //compare the first set with the second set
     i:=0;
-    j:=0;
+  
     REPEAT
+      j:=0;
         REPEAT
             IF (first_array[i] == second_array[j]) THEN
                 trouve := TRUE;
@@ -38,8 +39,9 @@ BEGIN
      
     //compare the second set with the first set
     i:=0;
-    j:=0;
+
     REPEAT
+        j:=0;
         REPEAT
             IF (second_array[i] == first[j]) THEN
                 trouve := TRUE;
