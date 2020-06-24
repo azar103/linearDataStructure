@@ -30,12 +30,12 @@ BEGIN
     j := 0;
      REPEAT
         REPEAT
-            IF (tab1.get(i):= tab2.get(j)) THEN
-                trouve := true;
+            IF (tab1.get(i)<> tab2.get(j)) THEN
+                trouve := FALSE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=true)
-        IF (NOT trouve) THEN
+        UNTIL (j<m AND trouve :=FALSE)
+        IF (trouve := TRUE) THEN
             tab3.insert(tab1.get(i), 1);
         ELSE 
             count= tab1.get(i) 
@@ -50,11 +50,11 @@ BEGIN
     REPEAT
         REPEAT
             IF (tab2.get(i):= tab1.get(j)) THEN
-                trouve := true;
+                trouve := FALSE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=true)
-        IF (NOT trouve) THEN
+        UNTIL (j<m AND trouve :=FALSE)
+        IF (trouve := TRUE) THEN
             tab3.insert(tab2.get(i), 1);
         ELSE 
             count= tab1.get(i) 
@@ -64,7 +64,7 @@ BEGIN
     UNTIL (i<n)
 
     FOR i FROM 0 TO tab3.size() STEP 1  DO
-        if(tab3.get(i) = 1) THEN
+        if(tab3.get(i) := 1) THEN
              sum := sum + tab3.get(i)
         END_IF    
     END_FOR

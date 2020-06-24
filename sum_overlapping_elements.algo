@@ -25,12 +25,12 @@ BEGIN
     j:=0;
     REPEAT
         REPEAT
-            IF (first_array[i] <> second_array[j]) THEN
-                trouve := false;
+            IF (first_array[i] := second_array[j]) THEN
+                trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=false)
-        IF (trouve := true) THEN
+        UNTIL (j<m AND trouve :=TRUE)
+        IF (NOT trouve) THEN
             sum := sum + first_array[i];
         END_IF   
         i++
@@ -41,12 +41,12 @@ BEGIN
     j:=0;
     REPEAT
         REPEAT
-            IF (second_array[i] <> first[j]) THEN
-                trouve := false;
+            IF (second_array[i] := first[j]) THEN
+                trouve := TRUE;
             END_IF
             j++
-        UNTIL (j<m AND trouve :=false)
-        IF (trouve := true) THEN
+        UNTIL (j<m AND trouve :=TRUE)
+        IF (NOT trouve) THEN
             sum := sum + second_array[i];
         END_IF 
         i++
