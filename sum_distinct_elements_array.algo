@@ -1,0 +1,66 @@
+ALGORITHM sum_distinct_elements
+VAR
+    first_array : ARRAY_OF INTEGER[];
+    second_array : ARRAY_OF INTEGER[];
+    i : INTEGER;
+    j  :INTEGER;
+    sum : INTEGER := 0;
+    sum_arr : ARRAY_OF  INTEGER[];
+    trouve: BOOLEAN = false;
+    m := INTEGER;
+    n := INTEGER;
+BEGIN
+    Write("give the length of the first set:")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(first_array[i])
+    END_FOR
+    Write("give the length of the second set:")
+    Read(m)
+     FOR i FROM 0 TO m-1 STEP step  DO
+        Read(second_array[i])
+    END_FOR
+   //compare the first set with the second set
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO m-1 STEP 1  DO
+            IF (first_array[i] := second_array[j]) THEN
+                trouve := true;
+            END_IF
+        END_FOR
+         
+    END_FOR
+    i:=0;
+    j:=0;
+    REPEAT
+        REPEAT
+            IF (first_array[i] := second_array[j]) THEN
+                trouve := true;
+            END_IF
+            j++
+        UNTIL (j<m AND trouve :=true)
+        IF (NOT trouve) THEN
+            sum := sum + first_array[i];
+        END_IF   
+        i++
+    UNTIL (i<n)
+     
+    //compare the second set with the first set
+    i:=0;
+    j:=0;
+    REPEAT
+        REPEAT
+            IF (second_array[i] := first[j]) THEN
+                trouve := true;
+            END_IF
+            j++
+        UNTIL (j<m AND trouve :=true)
+        IF (NOT trouve) THEN
+            sum := sum + second_array[i];
+        END_IF 
+        i++
+    UNTIL (i<n)
+
+    
+
+    Write("the sum of the distinc elements is "+sum);
+END

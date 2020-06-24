@@ -1,0 +1,72 @@
+ALGORITHM sum_distinct_elements
+VAR
+  tab1:  HASH_TABLE<INTEGER,INTEGER>;
+  tab2:  HASH_TABLE<INTEGER,INTEGER>;
+  tab3:  HASH_TABLE<INTEGER,INTEGER>;
+  n : INTEGER;
+  m : INTEGER;
+  k : INTEGER;
+  i : INTEGER;
+  j : INTEGER;
+  sum : INTEGER := 0;
+  count : INTEGER;
+  trouve: BOOLEAN := FALSE;
+
+BEGIN
+    Write("give the number of elements of the first hashtable:")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("enter a number :")
+        Read(k)
+        tab1.insert(i, k)
+    END_FOR
+    Write("give the number of elements of the SECOND hashtable:")
+    Read(m)
+     FOR i FROM 0 TO m-1 STEP step  DO
+        Read(k)
+        tab2.insert(i, k)
+    END_FOR
+    i := 0;
+    j := 0;
+     REPEAT
+        REPEAT
+            IF (tab1.get(i)<> tab2.get(j)) THEN
+                trouve := false;
+            END_IF
+            j++
+        UNTIL (j<m AND trouve := FALSE)
+        IF (NOT trouve) THEN
+            tab3.insert(tab1.get(i), 1);
+        ELSE 
+            count= tab1.get(i) 
+            tab3.insert(tab1.get(i), count+1)    
+        END_IF 
+        i++
+    UNTIL (i<n)
+   
+    i := 0;
+    j := 0;
+    
+    REPEAT
+        REPEAT
+            IF (tab2.get(i)<> tab1.get(j)) THEN
+                trouve :=  FALSE;
+            END_IF
+            j++
+        UNTIL (j<m AND trouve := FALSE)
+        IF (NOT trouve) THEN
+            count= tab1.get(i) 
+            tab3.insert(tab2.get(i), count+1)    
+        ELSE 
+            tab3.insert(tab2.get(i), 1)    
+        END_IF 
+        i++
+    UNTIL (i<n)
+
+    FOR i FROM 0 TO tab3.size() STEP 1  DO
+        if(tab3.get(i) = 1) THEN
+             sum := sum + tab3.get(i)
+        END_IF    
+    END_FOR
+    Write("the sum of the distinc elements is "+sum);
+END
