@@ -55,7 +55,7 @@ BEGIN
             j++
         UNTIL (j<m AND trouve := TRUE)
         IF (trouve := TRUE) THEN
-            count= tab1.get(i) 
+            count= tab2.get(i) 
             tab3.insert(tab2.get(i), count+1)    
         ELSE 
             tab3.insert(tab2.get(i), 1)    

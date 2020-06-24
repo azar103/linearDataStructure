@@ -57,7 +57,7 @@ BEGIN
         IF (trouve := TRUE) THEN
             tab3.insert(tab2.get(i), 1);
         ELSE 
-            count= tab1.get(i) 
+            count= tab2.get(i) 
             tab3.insert(tab2.get(i), count+1)    
         END_IF 
         i++
